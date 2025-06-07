@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const AuthRouther = require('./routes/authRoutes');
+const AuthRouter = require('./routes/authRoutes');
+const EventRouter = require('./routes/eventRoutes');
+
 
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
@@ -11,7 +13,8 @@ require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/api/auth', AuthRouther);
+app.use('/api/auth', AuthRouter);
+app.use('/api/events', EventRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

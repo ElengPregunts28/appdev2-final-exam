@@ -1,6 +1,6 @@
-const User = require("../models/Users");
-const connectDB = require("../config/db.config");
-const { hashValidation } = require("../middleware/authMiddleware");
+const User = require("./models/Users");
+const connectDB = require("./config/nodemailer.js");
+const { hashValidation } = require("./middleware/authMiddleware");
 
 const userSeeder = async () => {
   connectDB();
@@ -23,3 +23,4 @@ const userSeeder = async () => {
 };
 
 userSeeder();
+
